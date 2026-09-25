@@ -1,0 +1,17 @@
+import { Leaf } from 'lucide-react';
+
+export default function BrandMark({ compact = false }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#173f2f] text-white shadow-card">
+        <Leaf size={20} strokeWidth={1.8} />
+      </span>
+      {!compact && (
+        <span className="leading-tight">
+          <strong className="block text-[15px] font-bold tracking-tight text-[#173f2f]">Herbal Wellness Hub</strong>
+          <span className="block text-[10px] uppercase tracking-[0.16em] text-slate-500">Private wellness support</span>
+        </span>
+      )}
+    </div>
+  );
+}

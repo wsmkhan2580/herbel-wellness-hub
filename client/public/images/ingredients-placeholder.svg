@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" role="img" aria-labelledby="title desc">
+  <title id="title">Ingredients image placeholder</title>
+  <desc id="desc">Replace this placeholder with the verified product ingredients image.</desc>
+  <rect width="800" height="640" rx="44" fill="#214b39"/>
+  <rect x="48" y="48" width="704" height="544" rx="34" fill="none" stroke="#d9efe0" stroke-width="4" stroke-dasharray="18 14" opacity="0.7"/>
+  <circle cx="400" cy="252" r="72" fill="#d9efe0" opacity="0.14"/>
+  <path d="M400 312c-62-38-82-98-42-133 38-33 87-4 87 38 0 43-29 75-45 95Z" fill="#d9efe0" opacity="0.75"/>
+  <path d="M399 309c12-44 31-78 57-103" fill="none" stroke="#214b39" stroke-width="9" stroke-linecap="round" opacity="0.65"/>
+  <text x="400" y="404" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Ingredients Image Placeholder</text>
+  <text x="400" y="452" text-anchor="middle" fill="#d9efe0" font-family="Arial, sans-serif" font-size="20">Replace with verified product ingredient visual</text>
+</svg>
