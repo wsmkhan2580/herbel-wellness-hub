@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const leadSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true, maxlength: 120 },
   city: { type: String, required: true, trim: true, maxlength: 120 },
+  phone: { type: String, required: true, trim: true, maxlength: 20 },
   problem: { type: String, required: true, trim: true, maxlength: 80 },
   description: { type: String, required: true, trim: true, minlength: 5, maxlength: 1000 }
 }, { timestamps: { createdAt: true, updatedAt: false } });
