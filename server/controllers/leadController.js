@@ -29,6 +29,7 @@ function makeQuery({ search, problem, startDate, endDate }) {
     query.$or = [
       { name: { $regex: value, $options: 'i' } },
       { city: { $regex: value, $options: 'i' } },
+      { phone: { $regex: value, $options: 'i' } },
       { description: { $regex: value, $options: 'i' } }
     ];
   }
@@ -124,6 +125,7 @@ export async function exportLeads(req, res, next) {
     sheet.columns = [
       { header: 'Name', key: 'name', width: 28 },
       { header: 'City', key: 'city', width: 24 },
+      { header: 'Phone', key: 'phone', width: 18 },
       { header: 'Problem', key: 'problem', width: 30 },
       { header: 'Problem Description', key: 'description', width: 60 },
       { header: 'Date', key: 'date', width: 15 },
@@ -135,6 +137,7 @@ export async function exportLeads(req, res, next) {
       sheet.addRow({
         name: safeExcelText(lead.name),
         city: safeExcelText(lead.city),
+        phone: safeExcelText(lead.phone),
         problem: safeExcelText(lead.problem),
         description: safeExcelText(lead.description),
         date: d.toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' }),
