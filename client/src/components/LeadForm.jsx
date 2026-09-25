@@ -12,7 +12,7 @@ const problems = [
   'Other'
 ];
 
-const initial = { name: '', city: '', problem: '', description: '' };
+const initial = { name: '', city: '', phone: '', problem: '', description: '' };
 
 export default function LeadForm() {
   const [form, setForm] = useState(initial);
@@ -22,7 +22,13 @@ export default function LeadForm() {
 
   async function submit(e) {
     e.preventDefault();
-    if (!form.name.trim() || !form.city.trim() || !form.problem || form.description.trim().length < 5) {
+    if (
+      !form.name.trim() ||
+      !form.city.trim() ||
+      !form.phone.trim() ||
+      !form.problem ||
+      form.description.trim().length < 5
+    ) {
       setState({ loading: false, success: false, error: 'कृपया सभी required fields complete करें और अपनी problem के बारे में थोड़ा detail लिखें।' });
       return;
     }
@@ -45,7 +51,7 @@ export default function LeadForm() {
           <p className="mt-5 max-w-xl text-base leading-7 text-emerald-50/80 sm:text-lg">Aap kis concern ke liye information chahte hain, basic details share karein aur apni problem ko apne words mein describe karein. Isse aapki enquiry ko better way mein samjha ja sakta hai.</p> 
           <div className="mt-7 flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-emerald-50/80"> 
             <ShieldCheck className="mt-0.5 shrink-0" size={20} /> 
-            <span>Required information: Name, City, concern category aur aapki problem description.</span> 
+            <span>Required information: Name, City, Phone Number, concern category aur aapki problem description.</span> 
           </div> 
         </div> 
  
@@ -71,6 +77,10 @@ export default function LeadForm() {
                 <div> 
                   <label className="label" htmlFor="city">City</label> 
                   <input id="city" name="city" value={form.city} onChange={update} className="input" autoComplete="address-level2" required maxLength={120} placeholder="Apna City likhein" /> 
+                </div> 
+                <div> 
+                  <label className="label" htmlFor="phone">Phone Number</label> 
+                  <input id="phone" name="phone" type="tel" value={form.phone} onChange={update} className="input" autoComplete="tel" required maxLength={15} placeholder="Apna phone number likhein" /> 
                 </div> 
                 <div> 
                   <label className="label" htmlFor="problem">Aap kis Problem ke liye Help chahte hain?</label> 
