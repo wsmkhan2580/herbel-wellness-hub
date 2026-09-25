@@ -239,19 +239,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
             </div>
           </div>
         </section>
-
-
-        <section className="section-pad bg-[#173f2f] text-white">
-          <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-            <div>
-              <Reveal><span className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">Quality awareness</span><h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Product Choose Karte Time Quality Details Zaroor Check Karein</h2><p className="mt-4 max-w-3xl text-emerald-50/75">Wellness product choose karte time pack par di gayi manufacturing, batch, expiry, usage aur caution information ko dhyan se read karna important hai. Genuine documentation available ho to verified information ko hi priority dein.</p></Reveal>
-             <div className="mt-9 grid gap-4 sm:grid-cols-2"> 
-                {[[PackageCheck, 'Pack & Batch Details', 'Pack par batch number, manufacturing aur expiry details check karein.'], [ShieldCheck, 'Safety Information', 'Label par diye caution aur storage instructions ko follow karein.'], [Leaf, 'Ingredients Label', 'Ingredients ki information ke liye actual product label ko primary source maanein.'], [Stethoscope, 'Health Context', 'Existing health condition ya medicines ke saath use se pehle professional advice lein.']].map(([Icon, title, text]) => <Reveal key={title}><div className="h-full rounded-3xl border border-white/10 bg-white/5 p-5"><Icon size={23} className="text-emerald-200" /><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-2 text-xs leading-5 text-emerald-50/70">{text}</p></div></Reveal>)} 
-              </div>
-            </div>
-            <Reveal><img src="/images/research.svg" alt="Wellness research and quality awareness illustration" className="mx-auto w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-6" loading="lazy" /></Reveal>
-          </div>
-        </section>
+    
 
       <section className="section-pad bg-[#f5f7f2]">
           <div className="section-shell">
