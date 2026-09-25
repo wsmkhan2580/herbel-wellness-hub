@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const leadSchema = z.object({
   name: z.string().trim().min(2, 'Name is required').max(120),
   city: z.string().trim().min(2, 'City is required').max(120),
+  phone: z.string().trim().regex(/^[0-9+\-\s]{7,15}$/, 'Enter a valid phone number'),
   problem: z.enum([
     'Premature Ejaculation',
     'Erectile Dysfunction',
