@@ -239,18 +239,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
             </div>
           </div>
         </section>
-        <section className="section-pad bg-[#f5f7f2]">
-          <div className="section-shell">
-            <Reveal><SectionHeading eyebrow="Quantity awareness" title="Pack ki Quantity ko Label se Clearly Verify Karein" copy="Product ki quantity ko hamesha actual pack par printed Net Quantity se verify karein. Pack size ko recommended usage ya guaranteed result ke saath assume nahi karna chahiye." /></Reveal>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {[
-                [PackageCheck, 'Net Quantity Check', 'Pack par printed Net Quantity ko purchase se pehle clearly check karein.'],
-                [ClipboardCheck, 'Usage Quantity', 'Kitni quantity use karni hai, uske liye verified product label ya qualified professional ki guidance follow karein.'],
-                [Info, 'No Assumptions', 'Bada pack ya zyada quantity ka matlab faster ya guaranteed result nahi hota; individual experience vary kar sakta hai.']
-              ].map(([Icon, title, text]) => <Reveal key={title}><article className="card h-full p-6"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={22} /></span><h3 className="mt-5 text-xl font-bold text-[#173f2f]">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></article></Reveal>)}
-            </div>
-          </div>
-        </section>
+
 
         <section className="section-pad bg-[#173f2f] text-white">
           <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
