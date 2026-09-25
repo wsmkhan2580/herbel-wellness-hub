@@ -214,9 +214,73 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
           </div>
         </section>
 
-     <section className="section-pad bg-[#f5f7f2]">
+<section className="section-pad bg-[#f5f7f2]">
           <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
             <Reveal>
               <SectionHeading eyebrow="Product Details" title="Overall Male Sexual Wellness Support par Focus" copy="Product ko male sexual wellness, stamina, performance confidence aur intimate wellbeing jaise areas ke context mein present kiya gaya hai. Ingredients aur usage ke liye hamesha product pack par di gayi genuine label information follow karein." />
               <div className="mt-6 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
-                {['Stamina support par focus', 'Performance confidence support', 'Sexual confidence pa
+                {['Stamina support par focus', 'Performance confidence support', 'Sexual confidence par dhyan', 'Intimate wellness approach', 'Better timing confidence ka focus', 'Pack label ke according usage'].map((x) => <div key={x} className="flex gap-2"><Check size={17} className="mt-0.5 shrink-0 text-emerald-800" />{x}</div>)}
+              </div>
+              <div className="mt-7 flex items-center gap-4"><div><span className="block text-sm font-semibold text-slate-400 line-through">₹3999/-</span><strong className="text-3xl text-[#173f2f]">₹1299/-</strong></div><button onClick={scrollToLeadForm} className="btn-primary">Form Fill Karein</button></div>
+            </Reveal>
+            <Reveal><div className="card mx-auto max-w-md overflow-hidden p-4"><img src="/images/product1.png" alt="Herbal wellness product bottle" className="aspect-[4/5] w-full rounded-[1.5rem] object-cover" loading="lazy" /></div></Reveal>
+          </div>
+        </section>
+
+   <section className="section-pad bg-white">
+          <div className="section-shell">
+            <Reveal><SectionHeading eyebrow="Private experience" title="Aapki Privacy aur Clarity par Focus" copy="Sexual wellness personal topic hai, isliye experience ko simple, respectful aur bina unnecessary pressure ke rakha gaya hai." /></Reveal>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {[
+                [LockKeyhole, 'Private Details', 'Form mein basic details li jaati hain—Full Name, City, selected concern aur aapki likhi hui problem description.'],
+                [ClipboardCheck, 'Clear Information', 'Benefits aur limitations ko clear language mein explain kiya gaya hai taaki misleading promise na bane.'],
+                [HeartHandshake, 'Respectful Support', 'Sexual-health concerns ko judgement ke bina, professional aur practical tareeke se address kiya gaya hai.']
+              ].map(([Icon, title, text]) => <Reveal key={title}><article className="card h-full p-6"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={22} /></span><h3 className="mt-5 text-xl font-bold text-[#173f2f]">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></article></Reveal>)}
+            </div>
+          </div>
+        </section>
+    
+
+      <section className="section-pad bg-[#f5f7f2]">
+          <div className="section-shell">
+            <Reveal><div className="overflow-hidden rounded-[2rem] border border-emerald-950/10 bg-white shadow-card"><div className="grid lg:grid-cols-[0.9fr_1.1fr]"><div className="bg-[#e7f1e6] p-7 sm:p-10"><div className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#173f2f] text-white"><Truck size={23} /></span><div><p className="text-sm font-semibold text-emerald-800">Payment Option</p><h2 className="text-3xl font-bold text-[#173f2f]">Cash on Delivery (COD) Available</h2></div></div><p className="mt-5 max-w-xl text-slate-600">No online payment is required. After submitting the form, your location and serviceability can be confirmed. For eligible locations, payment can be made at the time of delivery.</p></div><div className="grid gap-4 p-7 sm:grid-cols-3 sm:p-10">{[[BadgeIndianRupee, '₹1299/-', 'Regular ₹3999/-'], [MapPinCheck, 'Location Check', 'Serviceability confirmation'], [PackageCheck, 'COD', 'Delivery-time payment']].map(([Icon, title, text]) => <div key={title} className="rounded-2xl border border-emerald-950/10 bg-[#fbfcf8] p-5"><Icon className="text-emerald-800" size={22} /><h3 className="mt-4 text-xl font-bold text-[#173f2f]">{title}</h3><p className="mt-1 text-sm text-slate-500">{text}</p></div>)}</div></div></div></Reveal>
+          </div>
+        </section>
+        <BuyerFeedback />
+
+        <section className="section-pad bg-white">
+          <div className="section-shell">
+            <Reveal>
+              <div className="overflow-hidden rounded-[2rem] border border-emerald-950/10 bg-[#173f2f] text-white shadow-card">
+                <div className="grid gap-8 p-[31px] sm:p-[43px] lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                  <div>
+                    <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">Price</span>
+                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">Regular ₹3999/-, Special Price ₹1299/-</h2>
+                    <p className="mt-3 max-w-2xl leading-7 text-emerald-50/80">Regular price ₹3999/- hai Aur special price ₹1299/- hain. Cash on Delivery bhi available hai।</p>
+                    <div className="mt-6 flex flex-wrap items-center gap-4">
+                      <div><span className="block text-lg font-semibold text-emerald-100/60 line-through">₹3999/-</span><strong className="text-[51px] font-bold leading-none tracking-tight text-white">₹1299/-</strong></div>
+                      <button onClick={scrollToLeadForm} className="btn-secondary">Fill the Form <ArrowRight size={18} /></button>
+                    </div>
+                  </div>
+                  <PriceCountdown />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <LeadForm />
+
+      </main>
+
+      <footer id="contact" className="scroll-mt-24 border-t border-emerald-950/10 bg-white py-12">
+        <div className="section-shell grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div><BrandMark /><p className="mt-4 max-w-xl text-sm leading-6 text-slate-500">Ye website male sexual wellness ki general information aur product enquiry ke liye hai. Content diagnosis, emergency care ya personalized medical advice ka substitute nahi hain.</p></div>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-600" aria-label="Footer navigation"><a href="/privacy" className="hover:text-emerald-900">Privacy Policy</a><a href="/terms" className="hover:text-emerald-900">Terms & Conditions</a><a href="/disclaimer" className="hover:text-emerald-900">Disclaimer</a><a href="#contact" className="hover:text-emerald-900">Contact</a></nav>
+        </div>
+      </footer>
+      <MobileStickyCta />
+    </div>
+  );
+}
+
