@@ -5,11 +5,11 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'ui-serif', 'serif']
+        display: ['Georgia', 'ui-serif', 'serif']
       },
       boxShadow: {
-        soft: '0 20px 60px rgba(21, 48, 42, 0.10)',
-        card: '0 10px 35px rgba(21, 48, 42, 0.08)'
+        soft: '0 20px 60px rgba(22, 70, 46, 0.10)',
+        card: '0 10px 35px rgba(17, 58, 39, 0.08)'
       }
     }
   },
