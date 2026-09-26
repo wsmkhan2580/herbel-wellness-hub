@@ -1,4 +1,3 @@
-
 import { Star, MessageSquareText } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 
@@ -9,7 +8,7 @@ function Stars({ rating }) {
         <Star
           key={value}
           size={17}
-          className="text-amber-500"
+          className="text-[#c9963f]"
           fill={value <= rating ? 'currentColor' : 'none'}
         />
       ))}
@@ -57,7 +56,7 @@ const reviews = [
 
 export default function BuyerFeedback() {
   return (
-    <section id="testimonials" className="section-pad scroll-mt-24 bg-[#f5f7f2]">
+    <section id="testimonials" className="section-pad scroll-mt-24 bg-[#f6f1e2]">
       <div className="section-shell">
         <Reveal>
           <div className="max-w-3xl">
@@ -75,10 +74,10 @@ export default function BuyerFeedback() {
               {reviews.map((item, index) => (
                 <article
                   key={index}
-                  className="card w-[300px] shrink-0 snap-start p-6 sm:w-[350px] lg:w-[380px]"
+                  className="card w-[300px] shrink-0 snap-start bg-white p-6 sm:w-[350px] lg:w-[380px]"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-50 text-emerald-800">
+                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#f0e8d2] text-[#173f2f]">
                       <MessageSquareText size={20} />
                     </span>
 
@@ -90,7 +89,7 @@ export default function BuyerFeedback() {
                   </p>
 
                   <div className="mt-5 border-t border-slate-100 pt-4">
-                    <strong className="block text-sm text-[#173f2f]">
+                    <strong className="block text-sm font-bold text-[#173f2f]">
                       {item.name}
                     </strong>
 
