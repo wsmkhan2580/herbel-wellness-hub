@@ -134,18 +134,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-    <section className="section-pad bg-white"> 
-  <div className="section-shell"> 
-    <Reveal><SectionHeading eyebrow="Educational Comparison" title="Before / After ka Focus Result Proof nahi, Confidence Context hai" copy="Ye visuals guaranteed medical result nahi dikhate. Inka purpose common experience patterns ko easy educational format mein samjhana hai." /></Reveal> 
-    <div className="mt-10 grid gap-6 lg:grid-cols-3"> 
-      {[ 
-        ['Short Timing', 'Better Timing Confidence', '/images/stamina1.png', 'Timing pressure ko clock-based educational visual ke through samjhaya gaya hai.'], 
-        ['Low Energy', 'Better Stamina', '/images/confidence1.png', 'Energy aur performance support ko wellness context mein dikhaya gaya hai, fixed result ke roop mein nahi.'], 
-        ['Stress & Overthinking', 'Better Confidence', '/images/timing1.png', 'Performance pressure aur self-confidence ke emotional difference ko simple visual ke through dikhaya gaya hai.'] 
-      ].map(([before, after, image, text]) => <Reveal key={before}><article className="card overflow-hidden"><img src={image} alt={`${before} to ${after} educational comparison`} className="aspect-[16/10] w-full bg-emerald-50 object-contain p-6" loading="lazy" /><div className="p-6"><div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-sm"><span className="rounded-xl bg-slate-100 p-3 text-slate-600">{before}</span><ArrowRight size={17} className="text-slate-400" /><span className="rounded-xl bg-emerald-100 p-3 font-semibold text-emerald-900">{after}</span></div><p className="mt-4 text-sm leading-6 text-slate-600">{text}</p></div></article></Reveal>)} 
-    </div> 
-  </div> 
-</section>
+  
 
      <section className="section-pad bg-[#173f2f] text-white"> 
           <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center"> 
