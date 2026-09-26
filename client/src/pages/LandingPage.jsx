@@ -172,14 +172,6 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
             <Reveal><img src="/images/i.png" alt="Ingredients image placeholder" className="mx-auto w-full max-w-md rounded-[2rem] border border-dashed border-white/20 bg-white/5 p-6" loading="lazy" /></Reveal> 
           </div> 
         </section>
-        <section id="benefits" className="section-pad scroll-mt-24 bg-[#f5f7f2]">
-          <div className="section-shell">
-            <Reveal><SectionHeading eyebrow="Wellness support" title="Better Sexual Wellness. Better Confidence." copy="A supportive wellness approach can focus on stamina, performance confidence, timing confidence and intimate wellbeing. Individual experiences can vary, so this section does not promise a fixed medical outcome." /></Reveal>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {benefits.map(([title, Icon]) => <Reveal key={title}><div className="card flex h-full items-center gap-4 p-5"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={21} /></span><h3 className="font-bold text-[#173f2f]">{title}</h3></div></Reveal>)}
-            </div>
-          </div>
-        </section>
 
         <section className="section-pad bg-white">
           <div className="section-shell grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -199,19 +191,6 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
               <p className="mt-5 rounded-2xl border border-emerald-900/10 bg-white p-4 text-sm leading-6 text-slate-600">Kisi specific doctor ki recommendation ya medical endorsement ka claim nahi kiya gaya hai. Product-related health decision lete waqt apni health history ke according qualified professional ki advice lena better hai.</p> 
             </Reveal> 
           </div> 
-        </section>
-
-        <section id="how-it-works" className="section-pad scroll-mt-24 bg-white">
-          <div className="section-shell">
-            <Reveal><SectionHeading eyebrow="यह कैसे काम करता है" title="सरल, निजी और साफ प्रक्रिया" copy="प्रक्रिया छोटी और आसान रखी गई है, ताकि आप बिना अनावश्यक जानकारी दिए अपनी जरूरत स्पष्ट रूप से बता सकें।" /></Reveal>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {[
-                ['01', 'अपनी समस्या चुनें', 'दिए गए विकल्पों में से अपनी मुख्य परेशानी चुनें, ताकि आपकी जरूरत सही तरह समझी जा सके।'],
-                ['02', 'अपनी जानकारी भरें', 'अपना पूरा नाम, शहर और अपनी परेशानी का संक्षिप्त विवरण लिखें।'],
-                ['03', 'विवरण भेजें', 'सभी जानकारी जाँचने के बाद विवरण भेजें। सफल होने पर स्क्रीन पर स्पष्ट पुष्टि दिखाई देगी।']
-              ].map(([n, title, text]) => <Reveal key={n}><article className="card h-full p-6"><span className="text-4xl font-bold text-emerald-800/25">{n}</span><h3 className="mt-4 text-xl font-bold text-[#173f2f]">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></article></Reveal>)}
-            </div>
-          </div>
         </section>
 
 <section className="section-pad bg-[#f5f7f2]">
