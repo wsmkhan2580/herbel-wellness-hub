@@ -53,7 +53,7 @@ export default function LandingPage() {
                 {['Premature Ejaculation / शीघ्रपतन', 'Erection से जुड़ी समस्या', 'कम Stamina', 'Timing Confidence', 'Intimate Relationship Concerns'].map((item) => <span key={item} className="rounded-full border border-emerald-950/10 bg-white px-3 py-2 shadow-sm">{item}</span>)}
               </div>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <button onClick={scrollToLeadForm} className="btn-primary">Fill the Form <ArrowRight size={18} /></button>
+                <button onClick={scrollToLeadForm} className="btn-primary">Fill the Form/अभी फ़ॉर्म भरें</button>
                 <div className="rounded-2xl border border-emerald-950/10 bg-white px-5 py-3 shadow-sm">
                   <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">Special Price</span>
                   <span className="mr-2 text-sm font-semibold text-slate-400 line-through">₹3999/-</span><strong className="text-2xl text-[#173f2f]">₹1299/-</strong>
@@ -102,7 +102,7 @@ export default function LandingPage() {
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <div><span className="block text-sm font-semibold text-slate-400 line-through">₹3999/-</span><strong className="text-4xl text-[#173f2f]">₹1299/-</strong></div>
-                <button onClick={scrollToLeadForm} className="btn-primary">Fill the Form <ArrowRight size={18} /></button>
+                <button onClick={scrollToLeadForm} className="btn-primary">Fill the Form/अभी फ़ॉर्म भरें</button>
               </div>
             </Reveal>
           </div>
@@ -219,7 +219,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
                     <p className="mt-3 max-w-2xl leading-7 text-emerald-50/80">Regular price ₹3999/- hai Aur special price ₹1299/- hain. Cash on Delivery bhi available hai।</p>
                     <div className="mt-6 flex flex-wrap items-center gap-4">
                       <div><span className="block text-lg font-semibold text-emerald-100/60 line-through">₹3999/-</span><strong className="text-[51px] font-bold leading-none tracking-tight text-white">₹1299/-</strong></div>
-                      <button onClick={scrollToLeadForm} className="btn-secondary">Fill the Form <ArrowRight size={18} /></button>
+                      <button onClick={scrollToLeadForm} className="btn-secondary">Fill the Form/अभी फ़ॉर्म भरें</button>
                     </div>
                   </div>
                   <PriceCountdown />
