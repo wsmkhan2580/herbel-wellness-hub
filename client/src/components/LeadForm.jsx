@@ -42,20 +42,27 @@ export default function LeadForm() {
     }
   }
 return ( 
-  <section id="lead-form" className="section-pad scroll-mt-24 bg-[#143b2c] text-white">  
+  <section id="lead-form" className="section-pad scroll-mt-24 bg-[#173f2f] text-white">  
     <div className="section-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">  
 
-      <div>  
+      <div>
+        <span className="inline-flex items-center rounded-full border border-[#c9963f]/40 bg-[#c9963f]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#e4c98a]">Get Started</span>
+        <h2 className="mt-4 font-serif text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Apni Details Bharein Aur Shuru Karein</h2>
+        <p className="mt-3 max-w-md leading-7 text-white/80">Form fill karne ke baad hamari team aapse contact karegi aur aapki serviceability confirm karegi.</p>
+        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-dashed border-[#c9963f]/30 bg-white/5 p-4 text-sm text-white/80">
+          <ShieldCheck size={20} className="mt-0.5 shrink-0 text-[#e4c98a]" />
+          Aapki details private rakhi jaati hain aur sirf enquiry follow-up ke liye use hoti hain.
+        </div>
       </div>  
   
       <div className="rounded-[2rem] bg-white p-5 text-slate-900 shadow-2xl sm:p-8">  
         {state.success ? (  
           <div className="grid min-h-[390px] place-items-center text-center">  
             <div>  
-              <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+              <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#f0e8d2] text-[#173f2f]">
                 <CheckCircle2 size={32} />
               </span>  
-              <h3 className="mt-5 text-2xl font-bold text-[#173f2f]">
+              <h3 className="mt-5 font-serif text-2xl font-extrabold text-[#173f2f]">
                 Details successfully submit ho gayi hain.
               </h3>  
               <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-slate-600">
@@ -71,7 +78,7 @@ return (
           </div>  
         ) : (  
           <form onSubmit={submit} noValidate>  
-            <h3 className="text-2xl font-bold text-[#173f2f]">
+            <h3 className="font-serif text-2xl font-extrabold text-[#173f2f]">
               Apni Details Bharein
             </h3>  
             <p className="mt-2 text-sm text-slate-500">
@@ -116,5 +123,3 @@ return (
   </section> 
 ); 
 }
-
-  
