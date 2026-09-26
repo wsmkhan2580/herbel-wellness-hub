@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   CalendarDays, ChevronLeft, ChevronRight, Download, Eye, Filter, LogOut,
-  RefreshCw, Search, Trash2, UserRound, UsersRound, X, MessageSquareText, Star, CheckCircle2
+  RefreshCw, Search, Trash2, UserRound, UsersRound, X, MessageSquareText, Star, CheckCircle2, Phone
 } from 'lucide-react';
 import BrandMark from '../components/BrandMark.jsx';
 import api from '../services/api.js';
@@ -134,22 +134,22 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-[#f4f7f1]">
       <header className="sticky top-0 z-30 border-b border-emerald-950/10 bg-white/95 backdrop-blur">
-        <div className="section-shell flex h-20 items-center justify-between gap-4">
-          <BrandMark />
+        <div className="section-shell flex h-16 items-center justify-between gap-3 sm:h-20">
+          <BrandMark compact />
           <div className="flex items-center gap-2">
-            <button onClick={() => Promise.all([loadLeads(), loadStats(), loadFeedback()])} className="btn-secondary px-4" aria-label="Refresh dashboard"><RefreshCw size={17} /></button>
-            <button onClick={logout} className="btn-secondary px-4"><LogOut size={17} /> <span className="hidden sm:inline">Logout</span></button>
+            <button onClick={() => Promise.all([loadLeads(), loadStats(), loadFeedback()])} className="btn-secondary px-3 sm:px-4" aria-label="Refresh dashboard"><RefreshCw size={17} /></button>
+            <button onClick={logout} className="btn-secondary px-3 sm:px-4"><LogOut size={17} /> <span className="hidden sm:inline">Logout</span></button>
           </div>
         </div>
       </header>
 
-      <main className="section-shell py-8 sm:py-10">
+      <main className="section-shell py-6 sm:py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div><span className="eyebrow">Admin dashboard</span><h1 className="mt-3 text-3xl font-bold tracking-tight text-[#173f2f] sm:text-4xl">Lead Management</h1><p className="mt-2 text-sm text-slate-500">Search, filter, review, delete and export submitted leads.</p></div>
-          <button onClick={exportExcel} className="btn-primary"><Download size={18} />Export to Excel</button>
+          <div><span className="eyebrow">Admin dashboard</span><h1 className="mt-3 text-2xl font-bold tracking-tight text-[#173f2f] sm:text-3xl lg:text-4xl">Lead Management</h1><p className="mt-2 text-sm text-slate-500">Search, filter, review, delete and export submitted leads.</p></div>
+          <button onClick={exportExcel} className="btn-primary w-full sm:w-auto"><Download size={18} />Export to Excel</button>
         </div>
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           <StatCard icon={UsersRound} label="Total Leads" value={stats.total} />
           <StatCard icon={CalendarDays} label="Today's Leads" value={stats.today} />
           <StatCard icon={UserRound} label="Recent Leads" value={stats.recent?.length || 0} />
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
         <section className="mt-6 grid gap-6 lg:grid-cols-[1.65fr_0.75fr]">
           <div className="card overflow-hidden">
             <form onSubmit={applyFilters} className="grid gap-3 border-b border-slate-100 p-4 sm:grid-cols-2 xl:grid-cols-5">
-              <label className="relative xl:col-span-1"><span className="sr-only">Search</span><Search className="pointer-events-none absolute left-3 top-3.5 text-slate-400" size={17} /><input className="input pl-10" placeholder="Name, city or description" value={filters.search} onChange={(e) => setFilters((v) => ({ ...v, search: e.target.value }))} /></label>
+              <label className="relative xl:col-span-1"><span className="sr-only">Search</span><Search className="pointer-events-none absolute left-3 top-3.5 text-slate-400" size={17} /><input className="input pl-10" placeholder="Name, city, phone or description" value={filters.search} onChange={(e) => setFilters((v) => ({ ...v, search: e.target.value }))} /></label>
               <select className="input" value={filters.problem} onChange={(e) => setFilters((v) => ({ ...v, problem: e.target.value }))}><option value="">All concerns</option>{problems.map((p) => <option key={p}>{p}</option>)}</select>
               <input type="date" className="input" value={filters.startDate} onChange={(e) => setFilters((v) => ({ ...v, startDate: e.target.value }))} aria-label="Start date" />
               <input type="date" className="input" value={filters.endDate} onChange={(e) => setFilters((v) => ({ ...v, endDate: e.target.value }))} aria-label="End date" />
@@ -167,18 +167,84 @@ export default function AdminDashboard() {
             </form>
 
             {error && <div className="m-4 rounded-2xl bg-rose-50 p-3 text-sm text-rose-700">{error}</div>}
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[980px] text-left text-sm">
-                <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500"><tr><th className="px-5 py-4">Name</th><th className="px-5 py-4">City</th><th className="px-5 py-4">Problem</th><th className="px-5 py-4">Description</th><th className="px-5 py-4">Date</th><th className="px-5 py-4">Time</th><th className="px-5 py-4 text-right">Actions</th></tr></thead>
+
+            {/* Desktop / tablet table */}
+            <div className="hidden overflow-x-auto sm:block">
+              <table className="w-full min-w-[1040px] text-left text-sm">
+                <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                  <tr>
+                    <th className="px-5 py-4">Name</th>
+                    <th className="px-5 py-4">Phone</th>
+                    <th className="px-5 py-4">City</th>
+                    <th className="px-5 py-4">Problem</th>
+                    <th className="px-5 py-4">Description</th>
+                    <th className="px-5 py-4">Date</th>
+                    <th className="px-5 py-4">Time</th>
+                    <th className="px-5 py-4 text-right">Actions</th>
+                  </tr>
+                </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {loading ? <tr><td colSpan="7" className="px-5 py-12 text-center text-slate-500">Loading leads...</td></tr> : data.items.length === 0 ? <tr><td colSpan="7" className="px-5 py-12 text-center text-slate-500">No leads found.</td></tr> : data.items.map((lead) => {
+                  {loading ? <tr><td colSpan="8" className="px-5 py-12 text-center text-slate-500">Loading leads...</td></tr> : data.items.length === 0 ? <tr><td colSpan="8" className="px-5 py-12 text-center text-slate-500">No leads found.</td></tr> : data.items.map((lead) => {
                     const dt = formatDateTime(lead.createdAt);
-                    return <tr key={lead._id} className="bg-white hover:bg-emerald-50/30"><td className="px-5 py-4 font-semibold text-slate-800">{lead.name}</td><td className="px-5 py-4 text-slate-600">{lead.city}</td><td className="px-5 py-4"><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-900">{lead.problem}</span></td><td className="max-w-[280px] px-5 py-4 text-slate-600"><span className="line-clamp-2">{lead.description}</span></td><td className="px-5 py-4 text-slate-600">{dt.date}</td><td className="px-5 py-4 text-slate-600">{dt.time}</td><td className="px-5 py-4"><div className="flex justify-end gap-2"><button onClick={() => setSelected(lead)} className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50" aria-label="View lead"><Eye size={16} /></button><button onClick={() => removeLead(lead._id)} className="grid h-9 w-9 place-items-center rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50" aria-label="Delete lead"><Trash2 size={16} /></button></div></td></tr>;
+                    return (
+                      <tr key={lead._id} className="bg-white hover:bg-emerald-50/30">
+                        <td className="px-5 py-4 font-semibold text-slate-800">{lead.name}</td>
+                        <td className="px-5 py-4 text-slate-600">
+                          {lead.phone ? <a href={`tel:${lead.phone}`} className="hover:text-emerald-800">{lead.phone}</a> : '—'}
+                        </td>
+                        <td className="px-5 py-4 text-slate-600">{lead.city}</td>
+                        <td className="px-5 py-4"><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-900">{lead.problem}</span></td>
+                        <td className="max-w-[240px] px-5 py-4 text-slate-600"><span className="line-clamp-2">{lead.description}</span></td>
+                        <td className="px-5 py-4 text-slate-600">{dt.date}</td>
+                        <td className="px-5 py-4 text-slate-600">{dt.time}</td>
+                        <td className="px-5 py-4">
+                          <div className="flex justify-end gap-2">
+                            <button onClick={() => setSelected(lead)} className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50" aria-label="View lead"><Eye size={16} /></button>
+                            <button onClick={() => removeLead(lead._id)} className="grid h-9 w-9 place-items-center rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50" aria-label="Delete lead"><Trash2 size={16} /></button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
                   })}
                 </tbody>
               </table>
             </div>
-            <div className="flex items-center justify-between border-t border-slate-100 px-5 py-4 text-sm text-slate-600">
+
+            {/* Mobile card list */}
+            <div className="grid gap-3 p-4 sm:hidden">
+              {loading ? (
+                <p className="py-8 text-center text-sm text-slate-500">Loading leads...</p>
+              ) : data.items.length === 0 ? (
+                <p className="py-8 text-center text-sm text-slate-500">No leads found.</p>
+              ) : data.items.map((lead) => {
+                const dt = formatDateTime(lead.createdAt);
+                return (
+                  <article key={lead._id} className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <strong className="block text-slate-800">{lead.name}</strong>
+                        <span className="mt-1 flex items-center gap-1 text-xs text-slate-500">
+                          <Phone size={12} />
+                          {lead.phone ? <a href={`tel:${lead.phone}`} className="hover:text-emerald-800">{lead.phone}</a> : '—'}
+                        </span>
+                        <span className="mt-0.5 block text-xs text-slate-500">{lead.city}</span>
+                      </div>
+                      <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-900">{lead.problem}</span>
+                    </div>
+                    <p className="mt-3 line-clamp-2 text-sm text-slate-600">{lead.description}</p>
+                    <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
+                      <span className="text-xs text-slate-500">{dt.date} · {dt.time}</span>
+                      <div className="flex gap-2">
+                        <button onClick={() => setSelected(lead)} className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-600" aria-label="View lead"><Eye size={16} /></button>
+                        <button onClick={() => removeLead(lead._id)} className="grid h-9 w-9 place-items-center rounded-xl border border-rose-200 text-rose-600" aria-label="Delete lead"><Trash2 size={16} /></button>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
               <span>{data.total} lead{data.total === 1 ? '' : 's'} · Page {page} of {data.pages}</span>
               <div className="flex gap-2"><button className="btn-secondary min-h-10 px-3 py-2" disabled={page <= 1} onClick={() => setPage((p) => Math.max(p - 1, 1))}><ChevronLeft size={16} /></button><button className="btn-secondary min-h-10 px-3 py-2" disabled={page >= data.pages} onClick={() => setPage((p) => Math.min(p + 1, data.pages))}><ChevronRight size={16} /></button></div>
             </div>
@@ -186,7 +252,7 @@ export default function AdminDashboard() {
 
           <aside className="grid content-start gap-6">
             <div className="card p-5"><h2 className="font-bold text-[#173f2f]">Problem-wise Count</h2><div className="mt-4 grid gap-3">{stats.byProblem?.length ? stats.byProblem.map((item) => <div key={item._id} className="flex items-center justify-between gap-3 text-sm"><span className="text-slate-600">{item._id}</span><strong className="rounded-full bg-emerald-50 px-2.5 py-1 text-emerald-900">{item.count}</strong></div>) : <p className="text-sm text-slate-500">No data yet.</p>}</div></div>
-            <div className="card p-5"><h2 className="font-bold text-[#173f2f]">Recent Leads</h2><div className="mt-4 grid gap-3">{stats.recent?.length ? stats.recent.map((lead) => <button key={lead._id} onClick={() => setSelected(lead)} className="rounded-2xl bg-slate-50 p-3 text-left hover:bg-emerald-50"><span className="block text-sm font-semibold text-slate-800">{lead.name}</span><span className="mt-1 block text-xs text-slate-500">{lead.city} · {lead.problem}</span></button>) : <p className="text-sm text-slate-500">No recent leads.</p>}</div></div>
+            <div className="card p-5"><h2 className="font-bold text-[#173f2f]">Recent Leads</h2><div className="mt-4 grid gap-3">{stats.recent?.length ? stats.recent.map((lead) => <button key={lead._id} onClick={() => setSelected(lead)} className="rounded-2xl bg-slate-50 p-3 text-left hover:bg-emerald-50"><span className="block text-sm font-semibold text-slate-800">{lead.name}</span><span className="mt-1 block text-xs text-slate-500">{lead.city} · {lead.problem}{lead.phone ? ` · ${lead.phone}` : ''}</span></button>) : <p className="text-sm text-slate-500">No recent leads.</p>}</div></div>
           </aside>
         </section>
 
@@ -221,10 +287,31 @@ export default function AdminDashboard() {
 }
 
 function StatCard({ icon: Icon, label, value }) {
-  return <div className="card p-5"><span className="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={19} /></span><strong className="mt-5 block text-3xl tracking-tight text-[#173f2f]">{value ?? 0}</strong><span className="mt-1 block text-sm text-slate-500">{label}</span></div>;
+  return <div className="card p-4 sm:p-5"><span className="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-50 text-emerald-800"><Icon size={19} /></span><strong className="mt-4 block text-2xl tracking-tight text-[#173f2f] sm:mt-5 sm:text-3xl">{value ?? 0}</strong><span className="mt-1 block text-sm text-slate-500">{label}</span></div>;
 }
 
 function LeadModal({ lead, onClose, onDelete }) {
   const dt = formatDateTime(lead.createdAt);
-  return <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/50 p-4 backdrop-blur-sm" role="dialog" aria-modal="true"><div className="w-full max-w-lg rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8"><div className="flex items-start justify-between gap-4"><div><span className="eyebrow">Lead details</span><h2 className="mt-3 text-2xl font-bold text-[#173f2f]">{lead.name}</h2></div><button onClick={onClose} className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-500"><X size={18} /></button></div><dl className="mt-7 grid gap-4 rounded-2xl bg-slate-50 p-5 text-sm"><div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">City</dt><dd className="font-medium text-slate-800">{lead.city}</dd></div><div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Problem</dt><dd className="font-medium text-slate-800">{lead.problem}</dd></div><div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Description</dt><dd className="whitespace-pre-wrap font-medium text-slate-800">{lead.description || "—"}</dd></div><div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Date</dt><dd className="font-medium text-slate-800">{dt.date}</dd></div><div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Time</dt><dd className="font-medium text-slate-800">{dt.time}</dd></div></dl><div className="mt-6 flex justify-end gap-3"><button onClick={onClose} className="btn-secondary">Close</button><button onClick={onDelete} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-700"><Trash2 size={17} />Delete Lead</button></div></div></div>;
+  return (
+    <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/50 p-4 backdrop-blur-sm" role="dialog" aria-modal="true">
+      <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8">
+        <div className="flex items-start justify-between gap-4">
+          <div><span className="eyebrow">Lead details</span><h2 className="mt-3 text-2xl font-bold text-[#173f2f]">{lead.name}</h2></div>
+          <button onClick={onClose} className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-slate-200 text-slate-500"><X size={18} /></button>
+        </div>
+        <dl className="mt-7 grid gap-4 rounded-2xl bg-slate-50 p-5 text-sm">
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Phone</dt><dd className="font-medium text-slate-800">{lead.phone ? <a href={`tel:${lead.phone}`} className="hover:text-emerald-800">{lead.phone}</a> : '—'}</dd></div>
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">City</dt><dd className="font-medium text-slate-800">{lead.city}</dd></div>
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Problem</dt><dd className="font-medium text-slate-800">{lead.problem}</dd></div>
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Description</dt><dd className="whitespace-pre-wrap font-medium text-slate-800">{lead.description || "—"}</dd></div>
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Date</dt><dd className="font-medium text-slate-800">{dt.date}</dd></div>
+          <div className="grid grid-cols-[100px_1fr] gap-3"><dt className="text-slate-500">Time</dt><dd className="font-medium text-slate-800">{dt.time}</dd></div>
+        </dl>
+        <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+          <button onClick={onClose} className="btn-secondary">Close</button>
+          <button onClick={onDelete} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-700"><Trash2 size={17} />Delete Lead</button>
+        </div>
+      </div>
+    </div>
+  );
 }
