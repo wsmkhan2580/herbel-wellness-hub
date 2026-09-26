@@ -172,15 +172,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
           </div>
         </section>
 
-    <section className="section-pad bg-[#eef4ec]"> 
-          <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"> 
-            <Reveal><img src="/images/doctor.png" alt="Doctor discussing a health concern with an adult patient" className="card w-full p-4" loading="lazy" /></Reveal> 
-            <Reveal> 
-              <SectionHeading eyebrow="Medical Perspective" title="Sexual Health ko Ignore Mat Karein" copy="Sexual-health concerns ke causes har person mein different ho sakte hain. Stress, sleep, cardiovascular health, diabetes, hormones, medication side effects aur relationship factors bhi role play kar sakte hain. Agar symptoms continuously bane rahein, to qualified clinician se assessment karana useful ho sakta hai." /> 
-              <p className="mt-5 rounded-2xl border border-emerald-900/10 bg-white p-4 text-sm leading-6 text-slate-600">Kisi specific doctor ki recommendation ya medical endorsement ka claim nahi kiya gaya hai. Product-related health decision lete waqt apni health history ke according qualified professional ki advice lena better hai.</p> 
-            </Reveal> 
-          </div> 
-        </section>
+  
 
 <section className="section-pad bg-[#f5f7f2]">
           <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
