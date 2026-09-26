@@ -217,7 +217,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
             <Reveal><div className="overflow-hidden rounded-[2rem] border border-[#173f2f]/10 bg-white shadow-card"><div className="grid lg:grid-cols-[0.9fr_1.1fr]"><div className="bg-[#f0e8d2] p-7 sm:p-10"><div className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#173f2f] text-white"><Truck size={23} /></span><div><p className="text-sm font-bold text-[#b9812e]">Payment Option</p><h2 className="font-serif text-3xl font-extrabold text-[#173f2f]">Cash on Delivery (COD) Available</h2></div></div><p className="mt-5 max-w-xl text-slate-700">No online payment is required. After submitting the form, your location and serviceability can be confirmed. For eligible locations, payment can be made at the time of delivery.</p></div><div className="grid gap-4 p-7 sm:grid-cols-3 sm:p-10">{[[BadgeIndianRupee, '₹1299/-', 'Regular ₹3999/-'], [MapPinCheck, 'Location Check', 'Serviceability confirmation'], [PackageCheck, 'COD', 'Delivery-time payment']].map(([Icon, title, text]) => <div key={title} className="rounded-2xl border border-[#173f2f]/10 bg-[#faf6ea] p-5"><Icon className="text-[#173f2f]" size={22} /><h3 className="mt-4 text-xl font-extrabold text-[#c9963f]">{title}</h3><p className="mt-1 text-sm text-slate-500">{text}</p></div>)}</div></div></div></Reveal>
           </div>
         </section>
-        <BuyerFeedback />
+        <LeadForm />
 
         <section className="section-pad bg-white">
           <div className="section-shell">
@@ -240,7 +240,7 @@ Naturally vitamin C aur antioxidants ka source hai, jo daily nutrition aur overa
           </div>
         </section>
 
-        <LeadForm />
+        <BuyerFeedback />
 
       </main>
 
